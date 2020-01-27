@@ -220,6 +220,8 @@ Juego.chequearColisiones = function(x, y) {
     this.obstaculos().forEach(function(obstaculo) {
         if (this.intersecan(obstaculo, this.jugador, x, y)) {
             puedeMoverse = false
+            console.log(obstaculo.sprite);
+            obstaculo.chocar(this.jugador);
         }
     }, this)
     return puedeMoverse
