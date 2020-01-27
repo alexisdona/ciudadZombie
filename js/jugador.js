@@ -10,7 +10,7 @@ var Jugador = {
     alto: 30,
     velocidad: 10,
     vidas: 5,
-    quitarVidas: function(cantVidas) {
+    perderVidas: function(cantVidas) {
         this.vidas -= cantVidas;
     },
     mover: function(posX, posY, pSprite) {
