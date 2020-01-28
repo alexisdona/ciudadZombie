@@ -54,7 +54,10 @@ var Juego = {
     ],
     // Los enemigos se agregaran en este arreglo.
     enemigos: [
-
+        new ZombieCaminante('imagenes/zombie1.png', 400, 430, 10, 10, 5, { desdeX: 600, hastaX: 400, desdeY: 430, hastaY: 430 }),
+        new ZombieCaminante('imagenes/zombie2.png', 400, 440, 10, 10, 2, { desdeX: 450, hastaX: 250, desdeY: 220, hastaY: 220 })
+        //  new ZombieCaminante('imagenes/zombie1.png', 80, 430, 10, 10, 3, { desdeX: 80, hastaX: 560, desdeY: 430, hastaY: 440 })
+        // new ZombieConductor('imagenes/tren_vertical.png', 100, 440, 10, 10, 10, { desdeX: 100, hastaX: 550, desdeY: 440, hastaY: 440 }, "v")
     ]
 
 }
@@ -91,6 +94,7 @@ Juego.iniciarRecursos = function() {
 Juego.obstaculos = function() {
     return this.obstaculosCarretera.concat(this.bordes);
 };
+
 
 Juego.comenzar = function() {
     // Inicializar el canvas del juego
@@ -192,7 +196,7 @@ Juego.dibujar = function() {
 un recorrido por los enemigos para dibujarlos en pantalla ahora habra que hacer
 una funcionalidad similar pero para que se muevan.*/
 Juego.moverEnemigos = function() {
-    /* COMPLETAR */
+    this.enemigos.forEach(enemigo => enemigo.mover());
 };
 
 /* Recorre los enemigos para ver cual esta colisionando con el jugador

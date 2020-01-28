@@ -22,8 +22,11 @@ var Jugador = {
         this.alto = 15;
     },
     parado: function() {
-        this.ancho = 15
+        this.ancho = 15;
         this.alto = 30;
+    },
+    fallecer: function() {
+        this.vidas = 0;
     }
 
 }
