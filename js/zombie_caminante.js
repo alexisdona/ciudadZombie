@@ -44,7 +44,6 @@ del zombie caminante habra que reimplementar este metodo desde el objeto ZombieC
 */
 
 ZombieCaminante.prototype.atacar = function(jugador) {
-    console.log("lo atacó");
     jugador.perderVidas(2);
 
 
