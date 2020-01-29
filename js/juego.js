@@ -24,12 +24,11 @@ var Juego = {
         new Obstaculo('imagenes/valla_vertical.png', 500, 440, 30, 30, 1),
         new Obstaculo('imagenes/valla_vertical.png', 500, 470, 30, 30, 1),
         new Obstaculo('imagenes/valla_horizontal.png', 850, 230, 30, 30, 1),
-        new Obstaculo('imagenes/bache.png', 850, 370, 30, 30, 1),
-        new Obstaculo('imagenes/bache.png', 820, 440, 15, 15, 1),
-        new Obstaculo('imagenes/bache.png', 110, 440, 15, 15, 1),
-        new Obstaculo('imagenes/bache.png', 350, 410, 15, 30, 1),
+        // new Obstaculo('imagenes/bache.png', 850, 370, 30, 30, 1),
+        //new Obstaculo('imagenes/bache.png', 820, 440, 15, 15, 1),
+        //new Obstaculo('imagenes/bache.png', 110, 440, 15, 15, 1),
+        new Obstaculo('imagenes/bache.png', 350, 450, 15, 30, 1),
         new Obstaculo('imagenes/auto_verde_derecha.png', 350, 490, 30, 15, 1),
-        new Obstaculo('imagenes/bache.png', 350, 410, 15, 30, 1)
 
 
     ],
@@ -54,10 +53,15 @@ var Juego = {
     ],
     // Los enemigos se agregaran en este arreglo.
     enemigos: [
-        new ZombieCaminante('imagenes/zombie1.png', 400, 430, 10, 10, 5, { desdeX: 600, hastaX: 400, desdeY: 430, hastaY: 430 }),
-        new ZombieCaminante('imagenes/zombie2.png', 400, 440, 10, 10, 2, { desdeX: 450, hastaX: 250, desdeY: 220, hastaY: 220 })
-        //  new ZombieCaminante('imagenes/zombie1.png', 80, 430, 10, 10, 3, { desdeX: 80, hastaX: 560, desdeY: 430, hastaY: 440 })
-        // new ZombieConductor('imagenes/tren_vertical.png', 100, 440, 10, 10, 10, { desdeX: 100, hastaX: 550, desdeY: 440, hastaY: 440 }, "v")
+        new ZombieCaminante('imagenes/zombie1.png', 400, 400, 10, 10, 1, { desdeX: 400, hastaX: 400, desdeY: 400, hastaY: 550 }),
+        new ZombieCaminante('imagenes/zombie2.png', 300, 220, 10, 10, 2, { desdeX: 300, hastaX: 300, desdeY: 220, hastaY: 280 }),
+        // new ZombieCaminante('imagenes/zombie2.png', 280, 100, 10, 10, 2, { desdeX: 280, hastaX: 400, desdeY: 100, hastaY: 100 }),
+        // new ZombieCaminante('imagenes/zombie2.png', 288, 110, 10, 10, 2, { desdeX: 280, hastaX: 400, desdeY: 110, hastaY: 110 }),
+        new ZombieCaminante('imagenes/zombie2.png', 730, 130, 10, 10, 2, { desdeX: 730, hastaX: 800, desdeY: 130, hastaY: 130 }),
+        new ZombieConductor('imagenes/tren_vertical.png', 644, 0, 30, 90, 5, { desdeX: 644, hastaX: 644, desdeY: 0, hastaY: 600 }, "v"),
+        new ZombieConductor('imagenes/tren_vertical.png', 678, 0, 30, 90, 5, { desdeX: 678, hastaX: 678, desdeY: 0, hastaY: 600 }, "v"),
+        new ZombieConductor('imagenes/tren_horizontal.png', 0, 322, 90, 30, 5, { desdeX: 0, hastaX: 900, desdeY: 322, hastaY: 322 }, "h")
+
     ]
 
 }
@@ -206,11 +210,9 @@ se ven las colisiones con los obstaculos. En este caso sera con los zombies. */
 Juego.calcularAtaques = function() {
     this.enemigos.forEach(function(enemigo) {
         if (this.intersecan(enemigo, this.jugador, this.jugador.x, this.jugador.y)) {
-            /* Si el enemigo colisiona debe empezar su ataque
-            COMPLETAR */
+            enemigo.comenzarAtaque(this.jugador);
         } else {
-            /* Sino, debe dejar de atacar
-            COMPLETAR */
+            enemigo.dejarDeAtacar(this.jugador);
         }
     }, this);
 };
