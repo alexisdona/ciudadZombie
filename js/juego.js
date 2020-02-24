@@ -160,10 +160,14 @@ Juego.capturarMovimiento = function(tecla) {
 
 Juego.dibujar = function() {
     // Borrar el fotograma actual
+
     Dibujante.borrarAreaDeJuego();
     //Se pinta la imagen de fondo segun el estado del juego
     this.dibujarFondo();
 
+    if (this.terminoJuego() || this.ganoJuego()) {
+        return;
+    }
 
     /* Aca hay que agregar la logica para poder dibujar al jugador principal
     utilizando al dibujante y los metodos que nos brinda.
@@ -261,6 +265,7 @@ Juego.dibujarFondo = function() {
 };
 
 Juego.terminoJuego = function() {
+    // console.log("entro en terminar Juego");
     return this.jugador.vidas <= 0;
 };
 
