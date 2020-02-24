@@ -13,15 +13,27 @@ var Jugador = {
     perderVidas: function(cantVidas) {
         this.vidas -= cantVidas;
     },
-    mover: function(posX, posY, pSprite) {
+    mover: function(posX, posY) {
         this.x += posX;
         this.y += posY;
     },
-    deCostado: function() {
+    deCostado: function(tipo) {
+        console.log(tipo);
+        if (tipo === 'izq') {
+            this.sprite = 'imagenes/auto_rojo_izquierda.png';
+        } else {
+            this.sprite = 'imagenes/auto_rojo_derecha.png';
+        }
         this.ancho = 30;
         this.alto = 15;
     },
-    parado: function() {
+    parado: function(tipo) {
+        console.log(tipo);
+        if (tipo === 'arriba') {
+            this.sprite = 'imagenes/auto_rojo_arriba.png';
+        } else {
+            this.sprite = 'imagenes/auto_rojo_abajo.png';
+        }
         this.ancho = 15;
         this.alto = 30;
     },

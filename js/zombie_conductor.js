@@ -23,10 +23,8 @@ ZombieConductor.prototype.mover = function() {
     La direccion horizontal es siempre la misma y va ondulando verticalmente.
     Esto hasta llegar a sus limites, donde se invierte su direccion horizontal */
     if (this.direccion == "v") {
-        //  console.log("entra en vertical: " + this.direccion);
         this.y += this.velocidad;
     } else {
-        // console.log("entra en horizontal :" + this.direccion);
         this.x += this.velocidad;
     }
 

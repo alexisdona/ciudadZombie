@@ -133,23 +133,19 @@ Juego.capturarMovimiento = function(tecla) {
     // El movimiento esta determinado por la velocidad del jugador
     if (tecla == 'izq') {
         movX = -velocidad;
-        this.jugador.sprite = 'imagenes/auto_rojo_izquierda.png';
-        this.jugador.deCostado();
+        this.jugador.deCostado('izq');
     }
     if (tecla == 'arriba') {
         movY = -velocidad;
-        this.jugador.sprite = 'imagenes/auto_rojo_arriba.png';
-        this.jugador.parado();
+        this.jugador.parado('arriba');
     }
     if (tecla == 'der') {
         movX = velocidad;
-        this.jugador.sprite = 'imagenes/auto_rojo_derecha.png';
-        this.jugador.deCostado();
+        this.jugador.deCostado('der');
     }
     if (tecla == 'abajo') {
         movY = velocidad;
-        this.jugador.sprite = 'imagenes/auto_rojo_abajo.png';
-        this.jugador.parado();
+        this.jugador.parado('abajo');
     }
 
     // Si se puede mover hacia esa posicion hay que hacer efectivo este movimiento
@@ -226,7 +222,6 @@ Juego.chequearColisiones = function(x, y) {
     this.obstaculos().forEach(function(obstaculo) {
         if (this.intersecan(obstaculo, this.jugador, x, y)) {
             puedeMoverse = false
-            console.log(obstaculo.sprite);
             obstaculo.chocar(this.jugador);
         }
     }, this)
